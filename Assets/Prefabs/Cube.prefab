@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4390687588236716874}
   - component: {fileID: 4390687588236716875}
   - component: {fileID: 4390687588236716872}
+  - component: {fileID: 6317776095075644245}
+  - component: {fileID: 8922828056705762332}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Brick
@@ -59,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f7b5669d70f05184baebce1e8c393cf6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,3 +111,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6317776095075644245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390687588236716878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632d96db00582b944b04fcf0b84539b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleColor: {r: 1, g: 1, b: 0.54509807, a: 1}
+  hitColor: {r: 0, g: 0.099416494, b: 1, a: 1}
+  colorToIdleSeconds: 0.5
+--- !u!114 &8922828056705762332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390687588236716878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c340bf907faba646b0f473b32f8ff67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 0.4
+  splitAftedDeath: 1
+  health: 1

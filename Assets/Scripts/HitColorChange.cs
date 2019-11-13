@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoundFX : MonoBehaviour
+public class HitColorChange : MonoBehaviour
 {
     [SerializeField]
-    Color idleColor = Color.grey;
+    Color idleColor = Color.white;
     [SerializeField]
     Color hitColor = Color.red;
     [SerializeField]
     float colorToIdleSeconds = 0.5f;
-
 
     private void Awake()
     {
@@ -19,11 +18,13 @@ public class BoundFX : MonoBehaviour
         lastHit = lastHit.AddSeconds(-colorToIdleSeconds * 2);
     }
 
-
     DateTime lastHit;
     private void OnCollisionEnter(Collision collision)
     {
-        lastHit = DateTime.Now;
+        if (collision.gameObject.tag == "Ball")
+        {
+            lastHit = DateTime.Now;
+        }
     }
 
     private void Update()
@@ -32,3 +33,4 @@ public class BoundFX : MonoBehaviour
         GetComponent<MeshRenderer>().material.color = c;
     }
 }
+

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Pusher : MonoBehaviour
@@ -28,7 +27,7 @@ public class Pusher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        touchingGameObjects.Add(other.gameObject);
+        touchingGameObjects.Add(other.gameObject);        
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,6 +37,7 @@ public class Pusher : MonoBehaviour
 
     private void FixedUpdate()
     {
+        touchingGameObjects.RemoveAll(_o => _o == null);
         foreach (var go in touchingGameObjects) 
             go.GetComponent<Rigidbody>().MovePosition(go.transform.position + pushVelocity3D * Time.deltaTime);
     }

@@ -11,6 +11,8 @@ public class Ball2 : MonoBehaviour
     [SerializeField]
     Vector2 initialDirection = new Vector2(0, -1.0f);
 
+    [SerializeField]
+    float randomVelocityAdditionAfterCollision = 0.3f;
 
     Rigidbody rigid;
     private void Awake()
@@ -21,7 +23,12 @@ public class Ball2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigid.velocity = rigid.velocity.normalized * velocity;
+        rigid.velocity = rigid.velocity.normalized * velocity;        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        rigid.velocity = rigid.velocity + Random.insideUnitSphere * randomVelocityAdditionAfterCollision;
     }
 
 }
